@@ -1,0 +1,11 @@
+--- xdm-1.1.17/xdm/genauth.c.vanilla	2025-03-11 09:22:41.681393915 +0100
++++ xdm-1.1.17/xdm/genauth.c	2025-03-11 09:23:01.791002835 +0100
+@@ -40,7 +40,7 @@
+ 
+ #include <errno.h>
+ 
+-#ifdef HAVE_ARC4RANDOM
++#if defined(HAVE_ARC4RANDOM) || defined(__linux__)
+ # include <stdlib.h>
+ #endif
+ 
