@@ -1,0 +1,11 @@
+--- gtk-3.24.49/gtk/meson.build.vanilla 2025-03-09 18:08:57.589000000 +0100
++++ gtk-3.24.49/gtk/meson.build 2025-03-09 18:09:15.729431152 +0100
+@@ -1138,7 +1138,7 @@
+ endif
+ 
+ gtk_update_icon_cache = executable(
+-  'gtk-update-icon-cache',
++  'gtk3-update-icon-cache',
+   'updateiconcache.c',
+   extra_update_icon_cache_objs,
+   c_args: gtk_cargs,
