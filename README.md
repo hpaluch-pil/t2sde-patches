@@ -8,7 +8,22 @@ Scripts `fix_*` in this directory workaround broken mirror downloads.
 
 # Building ISO
 
-Work in progress:
+> [!WARNING]
+> 
+> Work in progress:
+
+Tested SVN revision:
+
+```shell
+$ cd /usr/src/t2-src
+$ svn info | grep '^Last Changed'
+
+Last Changed Author: notag
+Last Changed Rev: 74904
+Last Changed Date: 2025-03-09 16:58:44 +0100 (Sun, 09 Mar 2025)
+```
+
+Running commands:
 
 ```shell
 t2 config -cfg isomin # select Base wayland template
@@ -37,3 +52,19 @@ Above will fail on `0-kmod` (`0` is stage number, `kmod` is package name) that
   t2 build-target -cfg isomin
   ```
 
+Now another error on `2-udev`:
+```
+install: target '/usr/src/t2-src/build/isomin-25-svn-generic-x86-64-linux//lib/udev/rules.d/': No such file or directory
+```
+- trying quick workaround:
+  ```shell
+  mkdir -p /usr/src/t2-src/build/isomin-25-svn-generic-x86-64-linux/lib/udev/rules.d
+  ```
+- now retry build:
+  ```shell
+  t2 build-target -cfg isomin 2-udev
+  ```
+- OK, resume ISO builds with:
+  ```shell
+  t2 build-target -cfg isomin
+  ```
