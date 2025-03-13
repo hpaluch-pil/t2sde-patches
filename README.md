@@ -78,4 +78,9 @@ Last Changed Date: 2025-03-12 00:47:03 +0100 (Wed, 12 Mar 2025)
 
 # fix broken net-tools-download
 ./fix_net_tools.sh
+
+# failed security/libxcrypt due missing perl, workaround:
+t2 build-target -cfg isomin 5-perl
+# failed glibc due missing python, workaround
+t2 build-target -cfg isomin 5-python
 ```
