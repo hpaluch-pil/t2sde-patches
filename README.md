@@ -68,3 +68,14 @@ install: target '/usr/src/t2-src/build/isomin-25-svn-generic-x86-64-linux//lib/u
   ```shell
   t2 build-target -cfg isomin
   ```
+
+New fixes required for latest SVN revision:
+```shell
+$ svn info | grep '^Last Change'
+Last Changed Author: rene
+Last Changed Rev: 74980
+Last Changed Date: 2025-03-12 00:47:03 +0100 (Wed, 12 Mar 2025)
+
+# fix broken net-tools-download
+./fix_net_tools.sh
+```
